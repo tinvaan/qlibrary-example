@@ -1,0 +1,5 @@
+*.user
+*.kdev4
+
+a.out
+build/
