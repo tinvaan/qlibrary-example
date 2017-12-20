@@ -57,6 +57,9 @@ int main(int argc, char *argv[])
 double loadFromHeader(int op)
 {
 	double res;
+
+#if LIBRARY
+#else
 	Compute c;
 
 	switch(op) {
@@ -77,6 +80,8 @@ double loadFromHeader(int op)
 			break;
 		default: break;
 	}
+
+#endif
 
 	return res;
 }
