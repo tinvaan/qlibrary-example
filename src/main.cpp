@@ -1,12 +1,14 @@
 #include <string>
 #include <iostream>
 
+#define LIBRARY 1
+
+#if LIBRARY
 // Qt includes
 #include <QLibrary>
-
+#else
 #include "compute.h"
-
-#define LIBRARY 1
+#endif
 
 typedef double (*SumFunction)(double, double);
 typedef double (*ProductFunction)(double, double);
