@@ -97,7 +97,7 @@ double loadFromLibrary(int op)
 
 			switch(op) {
 				case 1: {
-					SumFunction sum = (SumFunction)computeLib.resolve("sum");
+					SumFunction sum = (SumFunction)computeLib.resolve("_sum");
 
 					if (sum)
 						res = sum(4.4, 10);
@@ -107,7 +107,7 @@ double loadFromLibrary(int op)
 					break;
 				}
 				case 2: {
-					DifferenceFunction difference = (DifferenceFunction)computeLib.resolve("Compute::difference");
+					DifferenceFunction difference = (DifferenceFunction)computeLib.resolve("_diff");
 
 					if (difference)
 						res = difference(4.4, 10);
@@ -117,7 +117,7 @@ double loadFromLibrary(int op)
 					break;
 				}
 				case 3: {
-					ProductFunction product = (ProductFunction)computeLib.resolve("Compute::product");
+					ProductFunction product = (ProductFunction)computeLib.resolve("_mul");
 
 					if (product)
 						res = product(4.4, 10);
@@ -127,7 +127,7 @@ double loadFromLibrary(int op)
 					break;
 				}
 				case 4: {
-					QuotientFunction quotient = (QuotientFunction)computeLib.resolve("Compute::quotient");
+					QuotientFunction quotient = (QuotientFunction)computeLib.resolve("_div");
 
 					if (quotient)
 						res = quotient(4.4, 10);
@@ -137,7 +137,7 @@ double loadFromLibrary(int op)
 					break;
 				}
 				case 5: {
-					AverageFunction average = (AverageFunction)computeLib.resolve("Compute::average");
+					AverageFunction average = (AverageFunction)computeLib.resolve("_avg");
 
 					if (average)
 						res = average(4.4, 10);

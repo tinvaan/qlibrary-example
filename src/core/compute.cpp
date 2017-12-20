@@ -37,3 +37,5 @@ double Compute::difference(double x, double y)
 	m_result = x - y;
 	return m_result;
 }
+
+#include "compute_exports.cpp"
