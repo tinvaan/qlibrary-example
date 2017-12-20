@@ -92,64 +92,60 @@ double loadFromLibrary(int op)
 	bool error = false;
 	QLibrary computeLib("compute");
 
-	if (computeLib.load()) { 
-		if (computeLib.isLoaded()) {
+	if (computeLib.load()) {
+        switch(op) {
+            case 1: {
+                SumFunction sum = (SumFunction)computeLib.resolve("_sum");
 
-			switch(op) {
-				case 1: {
-					SumFunction sum = (SumFunction)computeLib.resolve("_sum");
+                if (sum)
+                    res = sum(4.4, 10);
+                else
+                    error = true;
 
-					if (sum)
-						res = sum(4.4, 10);
-					else
-						error = true;
+                break;
+            }
+            case 2: {
+                DifferenceFunction difference = (DifferenceFunction)computeLib.resolve("_diff");
 
-					break;
-				}
-				case 2: {
-					DifferenceFunction difference = (DifferenceFunction)computeLib.resolve("_diff");
+                if (difference)
+                    res = difference(4.4, 10);
+                else
+                    error = true;
 
-					if (difference)
-						res = difference(4.4, 10);
-					else
-						error = true;
+                break;
+            }
+            case 3: {
+                ProductFunction product = (ProductFunction)computeLib.resolve("_mul");
 
-					break;
-				}
-				case 3: {
-					ProductFunction product = (ProductFunction)computeLib.resolve("_mul");
+                if (product)
+                    res = product(4.4, 10);
+                else
+                    error = true;
 
-					if (product)
-						res = product(4.4, 10);
-					else
-						error = true;
+                break;
+            }
+            case 4: {
+                QuotientFunction quotient = (QuotientFunction)computeLib.resolve("_div");
 
-					break;
-				}
-				case 4: {
-					QuotientFunction quotient = (QuotientFunction)computeLib.resolve("_div");
+                if (quotient)
+                    res = quotient(4.4, 10);
+                else
+                    error = true;
 
-					if (quotient)
-						res = quotient(4.4, 10);
-					else
-						error = true;
+                break;
+            }
+            case 5: {
+                AverageFunction average = (AverageFunction)computeLib.resolve("_avg");
 
-					break;
-				}
-				case 5: {
-					AverageFunction average = (AverageFunction)computeLib.resolve("_avg");
+                if (average)
+                    res = average(4.4, 10);
+                else
+                    error = true;
 
-					if (average)
-						res = average(4.4, 10);
-					else
-						error = true;
-
-					break;
-				}
-				default: break;
-			}
-		} else
-			error = true;
+                break;
+            }
+            default: break;
+        }
 	} else
 		error = true;
 
